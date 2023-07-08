@@ -1,0 +1,97 @@
+footer {
+    .marcas-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+        padding: 50px;
+        margin-top: 10%;
+        border-style: ridge;
+        border-radius: 2%;
+        border-color: bisque;
+        h3{
+            padding-bottom: 2%;
+        }
+        .carouselMarcas {
+            width: 70%;
+            .swiper-wrapper{
+                left: 3%;
+                .swiper-slide{
+                    .circle-marca{
+                        width: 110px;
+                        height: 110px;
+                        background-color: #eaeaea;
+                        border-radius: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        overflow:hidden;
+                        img{
+                            width: 90%;
+                            height: 90%;
+                            object-fit: contain;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer-box{
+        background-color: black;
+        display: flex;
+        justify-content:space-around;
+        padding: 15px;
+        color:#eaeaea;
+        nav {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            .nav-footer{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 5px;
+                    li{
+                        
+                        a{
+                            color: #eaeaea;
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+                .list-icons{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 5px;
+                    
+                    a{
+                        text-decoration: none;
+                        color: #eaeaea;
+                        i{
+                            font-size: 20px;
+                        }
+                    }
+                        
+                }
+            }
+               
+
+        }
+    }
+    .final{
+        border-top: 2px $naranja solid;
+        background-color: black;
+        text-align: center;
+        color: #eaeaea;
+    }
+}

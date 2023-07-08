@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--SWIPERJS para sliders-->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!--Boostrap ICONS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <!--BOOSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--Hoja de estilos CSS-->
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Catalogo</title>
+
+</head>
+<body>
+    
+    <header>
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <img src="../images/logo.png" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="catalogo.html">Catalogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#SobreNosotros">Sobre Nosotros</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="login-car">
+                    <i class="bi bi-person"></i>
+                    <a href="../pages/carrito.html">
+                      <i class="bi bi-cart"></i>
+                      <span id="cantidad-icono-changito">0</span>
+                    </a>
+                    
+                </div>
+            </div>
+
+        </nav>
+        
+    </header>
+    <main class="main-catalogo">
+        <section class="filtros-box">
+            <h1>Filtros</h1>
+            <div class="busqueda">
+                <h3>Buscar</h3>
+                <input id="input-buscar-catalogo" type="text">
+                <button id="boton-buscar-catalogo">Buscar</button>
+            </div>
+            <div class="filters">
+                <h3>Filtrar Por:</h3>
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                          Categoria
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                          <label>
+                            <input type="checkbox" class="checkclass" value="audio">
+                            Audio
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="celular">
+                            Celulares
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="consolas">
+                            Consolas
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="computadora">
+                            Notebooks
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="tv">
+                            Televisores
+                          </label>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                          Marca
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <label>
+                            <input type="checkbox" class="checkclass" value="apple">
+                            Apple
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="asus">
+                            Asus
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="dell">
+                            Dell
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="hp">
+                            HP
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="jbl">
+                            JBL
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="lenovo">
+                            Lenovo
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="motorola">
+                            Motorola
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="noblex">
+                            Noblex
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="philips">
+                            Philips
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="samsung">
+                            Samsung
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="sony">
+                            Sony
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="tcl">
+                            TCL
+                          </label>
+                          <label >
+                            <input type="checkbox" class="checkclass" value="xbox">
+                            Xbox
+                          </label>
+                          <label>
+                            <input type="checkbox" class="checkclass" value="xiaomi">
+                            Xiaomi
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                          Precio
+                        </button>
+                      </h2>
+                      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                          <div class="range">
+                            <div>
+                              <span id="valoractual"></span>
+                            </div>
+                            <div class="range-box">
+                              <span>10000$</span>
+                              <input id="input-precio" type="range" min="10000" max="1000000" step="10000">
+                              <span>1000000$</span>
+                            </div>
+                            
+                          </div>                               
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="productos-box">
+            <h2>Productos</h2>
+            
+            <div id="grid-box-cards"></div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="marcas-box">
+            <h3>Trabajamos con las siguientes marcas</h3>
+            <div class="swiper carouselMarcas">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/applelogo.png" alt="">
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/samsunglogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/xiaomilogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/motorolalogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/asuslogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/delllogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/hplogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/jbllogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/lenovologo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/noblexlogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/philipslogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/sonylogo.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="circle-marca">
+                    <img src="../images/tcllogo.png" alt="">
+                  </div>
+                </div>
+              </div>
+              
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+        <section class="footer-box">
+            <div class="foot-logo">
+              <img src="../images/logo.png" alt="">
+            </div>
+            <nav>
+              <div class="nav-footer">
+                <h4>
+                  Nosotros
+                </h4>
+                <ul>
+                  <li>
+                    <a href="">Terminos y Condiciones</a>
+                  </li>
+                  <li>
+                    <a href="">Como Comprar</a>
+                  </li>
+                  <li>
+                    <a href="">Sobre Nosotros</a>
+                  </li>
+                  <li>
+                    <a href="">Sucursales</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-footer">
+                <h4>
+                  Informacion
+                </h4>
+                <ul>
+                  <li>
+                    <a href="">Medios de pago</a></li>
+                  <li>
+                    <a href="">Preguentas frecuentes</a></li>
+                  <li>
+                    <a href="">Politicas de Cambio</a></li>
+                  <li>
+                    <a href="">Politicas de Envio</a></li>
+                </ul>
+              </div>
+              <div class="nav-footer">
+                <h4>Seguinos en</h4>
+                <ul class="list-icons">
+                  <a href="">
+                    <i class="bi bi-facebook"></i>
+                    <span>Facebook</span>
+                  </a>
+                  <a href=""> 
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
+                  </a>
+                  <a href="">
+                    <i class="bi bi-twitter"></i>
+                    <span>Twitter</span>
+                  </a>
+                  <a href="">
+                    <i class="bi bi-linkedin"></i>
+                    <span>Linkedin</span>
+                  </a>
+                  
+                  
+                </ul>
+              </div>
+            </nav>
+        </section>
+        <section class="final">
+            <span>Todos los derechos Reservados | © Qtech</span>
+        </section>
+
+    </footer>
+
+    <!--SCRIPT JAVASCRIPT-->
+    <script src="../js/script.js"></script>
+    <!--SCRIPT SWIPER JS para sliders-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+     <!-- Initialize Swiper -->
+    <script>
+      
+      var swiper = new Swiper(".carouselMarcas", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        
+      });
+    </script>
+    <!--BOOTSTRAP SCRIPT-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

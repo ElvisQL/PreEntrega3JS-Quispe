@@ -1,0 +1,16 @@
+//variables
+@import 'base/variables';
+
+//base
+@import 'base/reset';
+@import 'base/utilities';
+
+//componentes
+@import 'components/header';
+@import 'components/footer';
+
+
+//layout
+@import 'layout/index';
+@import 'layout/catalogo';
+@import 'layout/carrito';

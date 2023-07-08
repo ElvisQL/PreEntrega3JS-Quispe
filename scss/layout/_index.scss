@@ -1,0 +1,74 @@
+//INDEX
+
+
+main {
+    height: auto;
+    
+    h1{
+        margin-top: 5%; 
+        text-align: center;
+    }
+    .sliderMasNuevos {
+        display: flex;
+        justify-content: center;
+        .boxSlider{
+            width: 60%;
+            .swiper {
+                .swiper-wrapper{
+                    .swiper-slide{
+                        .card{
+                            height: 100%;
+                            width: 200px;
+                            text-align: center;
+                            .imagen-container{
+                                width: 100%;
+                                height: 50%;
+                                
+                                img {
+                                    width: 100%;
+                                    height: 100%
+                                    
+                                }
+                            }
+                           
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    .about {
+        position: relative;
+        margin-top: 10%;
+        height: 700px;
+        display: flex;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            
+        color: #ffffff;
+        padding: 20px;
+        border: 10px solid transparent;
+        border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%) 1; 
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .content-about{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+    }
+}
