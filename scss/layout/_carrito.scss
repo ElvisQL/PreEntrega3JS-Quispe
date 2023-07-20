@@ -1,23 +1,44 @@
 
 main {
     .menu-box-carrito{
-        
+        padding-top: 50px;
         width: 90%;
-        height: 600px;
-        border: 5px solid black;
+        
+        
         margin: 10px auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        
         #mensaje-no-hay{
             display: none;
-            width: 100%;
+            width: 50%;
+            margin: auto;
             height: 500px;
-            text-align: center;
+            
             flex-direction: column;
-            border: 2px black solid;
+            justify-content: center;
+            align-items: center;
+            border: 1px black solid;
             border-radius: 10%;
-            box-shadow: 5% black ;
+            box-shadow: 0 5px 20px grey ;
+            img {
+                height: 90px;
+                width: 90px;
+            }
+            h1{
+                font-size: 30px;
+            }
+            a{
+                margin-top: 20px;
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: black;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+                &:hover {
+                    background-color: $naranja;
+                }
+            }
 
         }
         #hay-productos{
@@ -27,16 +48,24 @@ main {
             flex-direction: column;
             justify-content: space-around;
             h1{
-                margin-bottom: 5px;
+                font-family: $font2;
             }
             .titulos-resumen {
+                padding-bottom: 25px;
                 width: 100%;
                 display: flex;
                 justify-content: space-around;
                 margin: 0 auto;
+                font-family: $font1;
+                span{
+                    font-family: $font1;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    
+                }
                 .titulo-producto{
                     width: 45%;
-                    
+                    font-family: $font1;
 
                 }
                 .titulo-precio {
@@ -60,23 +89,35 @@ main {
                 
                 
                 #lista-carrito {
+                    padding: 25px;
                     border: 1px solid gray;
+                    box-shadow: 0 2px 15px $naranja;
+                    max-height: 400px;
+                    overflow-y: auto;
                     height: auto;
                     display: flex;
                     flex-direction: column;
+                    list-style: none;
                     .card-producto-en-espera{
                         display: flex;
-
+                        align-items: center;
                         width: 100%;
                         height: 100px;
                         .titulo-producto{
                             width: 45%;
+                            display: flex;
+                            gap: 15px;
+                            align-items: center;
                             .bi-trash{
                                 cursor:pointer;
+                                font-size: 25px;
+                                &:hover{
+                                    color: $naranja;
+                                }
                             }
                             img {
-                                width: 50px;
-                                height: 50px;
+                                width: 75px;
+                                height: 75px;
                             }
                         }
                         
@@ -101,9 +142,32 @@ main {
                 }
 
             }
-            .resumen-total {
+            .total-box{
                 display: flex;
                 justify-content: flex-end;
+                padding-right: 80px;
+            }
+            .botones-finales{
+                margin-top: 25px;
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+                button{
+                    width: auto;
+                    border: none;
+                    border-radius: 12px;
+                    background-color: black;
+                    color: white;
+                    text-align: center;
+                    padding: 5px;
+                    transition: background-color 0.3s;
+                    &:hover{
+                    
+                        background-color: $naranja;
+                        color: black;
+                    }
+                    
+                }
             }
             
         }

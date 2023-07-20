@@ -1,6 +1,34 @@
 
 
+function CrearCardsIndex(prod){
+    let contenedor = document.getElementById("swiperwrapperlomasnuevo")
+    if (contenedor){
+        //LOS MAS NUEVOS SON LOS PRIMEROS 8 POR EJEMPLO
+        for (let i = 0; i<8;i++){
+            let swiper_slide = document.createElement("div")
+            swiper_slide.className = "swiper-slide" 
+            swiper_slide.innerHTML = `
+            <div class = "CardProducto">
+                <img src=${prod[i].rutaimagen} alt=prod${prod[i].id}>
+                <div class="card-body">
+                    <h4>${prod[i].nombre}</h4>
+                    <span>$${prod[i].precio}</span>
+                    <button class="boton-agregar" value ="${prod[i].nombre}">Agregar producto </button>
+                </div>
+            </div>
+            
+            
+            `
+            contenedor.appendChild(swiper_slide)
+        }
+        let botonAgregar = document.querySelectorAll(".boton-agregar")
+        
+        for (let boton of botonAgregar){
+            boton.addEventListener('click', () => agregarproducto(prod,boton.value))
+        }
+    }
 
+}
 
 
 //FUNCION PARA CREAR CARDS
@@ -14,10 +42,11 @@ function CrearCards(arrayDeObjetos){
             newCard.className = "CardProducto"
             newCard.innerHTML = `
             <img src=${prod.rutaimagen} alt=prod${prod.id}>
-            <div class="card-body"></div>
+            <div class="card-body">
                 <h4>${prod.nombre}</h4>
                 <span>$${prod.precio}</span>
                 <button class="boton-agregar" value ="${prod.nombre}">Agregar producto </button>
+            </div>
             `
             contenedorDeCards.appendChild(newCard)
         }
@@ -81,7 +110,7 @@ function FiltradoCategoriasProductos(productos){
 function filtrarporprecios(prod,inputRange){
     let valoractual = inputRange.value
     let outputprecio=document.getElementById("valoractual")
-    outputprecio.innerText= valoractual + "$"
+    outputprecio.innerText= "Precio: "+ valoractual + "$"
 
     let arrayPrecios = prod.filter(p => p.precio <= valoractual)
     CrearCards(arrayPrecios)
@@ -95,7 +124,16 @@ function FiltradoPreciosPoductos(prod){
     }
     
 }
+function MostrarTostada(){
+    Toastify({
+        text: "Producto Agregado",
+        duration: 2000,
+        gravity: "bottom",
+        position: "left",
+        className: "Toast",
 
+    }).showToast()
+}
 
 //esta funcion agrega al local storage el producto
 function agregarproducto(prod,nombreDelProducto){
@@ -120,7 +158,8 @@ function agregarproducto(prod,nombreDelProducto){
             });
             }
     } 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    MostrarTostada()
     CambiarIconoChangito()
     ActualizarPaginaCarrito()
 }
@@ -132,7 +171,7 @@ function CambiarIconoChangito() {
     if (carrito){
         let aCambiar = document.getElementById("cantidad-icono-changito")
         let cantidadtotal = carrito.reduce((i,p)=>{return i + p.cantidad},0)
-        aCambiar.innerText = cantidadtotal.toString()
+        aCambiar.innerText = cantidadtotal.toString() + " productos"
     }
     
 }
@@ -171,6 +210,8 @@ function AgregarCardEnEspera(prod){
     let total = document.getElementById("Total-compra")
     total.innerText = `Precio Total del carrito: ${contador}`
     QuitarProducto()
+    Borratodo()
+    FinalizarCompra()
 
 }
 
@@ -198,6 +239,17 @@ function ActualizarPaginaCarrito(){
     
 }
 
+function MostrarTostadaEliminar(){
+    Toastify({
+        text:"Producto eliminado",
+        duration: 2000,
+        gravity: "bottom",
+        position: "right",
+        className: "Toast",
+    }).showToast()
+    
+}
+
 
 //esta funcion recibe un id a eliminar de la lista en el carrito y lo elimina
 function eliminarProducto(id_a_eliminar){
@@ -207,6 +259,7 @@ function eliminarProducto(id_a_eliminar){
     localStorage.setItem("carrito",JSON.stringify(carrito))
     CambiarIconoChangito()
     ActualizarPaginaCarrito()
+    MostrarTostadaEliminar()
 }
 
 //Esta funcion asigna un event listener a todos los iconos de eliminar
@@ -214,7 +267,7 @@ function QuitarProducto(){
     let eliminar = document.querySelectorAll(".bi-trash")
     if (eliminar){
         for (i of eliminar){
-            console.log(i.id)
+            
             i.addEventListener("click",function(e){
                 eliminarProducto(e.target.id)
             })
@@ -224,53 +277,130 @@ function QuitarProducto(){
 }
 
 
-function main() {
-    let productos = [
-        {id:1,nombre:"Celular Samsung Galaxy S23+",cantidad:7,categoria:["celular","samsung"],precio:400000,disponibilidad:true,rutaimagen:'../images/samsung-s23plus.png'},
-        {id:2,nombre:"Celular Samsung Galaxy A54 5G",cantidad:6,categoria:["celular","samsung"],precio:200000,disponibilidad:true,rutaimagen:'../images/samsunga54.webp'},
-        {id:3,nombre:"Celular Iphone 14 Pro Max",cantidad:10,categoria:["celular","apple"],precio:700000,disponibilidad:true,rutaimagen:'../images/iphone14-promax.webp'},
-        {id:4,nombre:"Celular Iphone 13 Pro Max",cantidad:4,categoria:["celular","apple"],precio:550000,disponibilidad:true,rutaimagen:'../images/iphone13-promax.webp'},
-        {id:5,nombre:"Televisor Philips 55' 4K UHD",cantidad:5,categoria:["tv","philips"],precio:130000,disponibilidad:true,rutaimagen:'../images/smarttvphilips74004k55.webp'},
-        {id:6,nombre:"Televisor Samsung 55' 4K UHD",cantidad:7,categoria:["tv","samsung"],precio:180000,disponibilidad:true,rutaimagen:'../images/tv-samsung-qled55.webp'},
-        {id:7,nombre:"Notebook Asus Intel I5",cantidad:3,categoria:["computadora","asus"],precio:300000,disponibilidad:true,rutaimagen:'../images/laptopasusinteli51135g7.webp'},
-        {id:8,nombre:"Notebook Lenovo Ryzen 5",cantidad:2,categoria:["computadora","lenovo"],precio:280000,disponibilidad:true,rutaimagen:'../images/lenovoryzen5.png'},
-        {id:9,nombre:"Notebook Dell Ryzen 5",cantidad:14,categoria:["computadora","dell"],precio:350000,disponibilidad:true,rutaimagen:'../images/laptopdellinspironryzen5.webp'},
-        {id:10,nombre:"Celular Motorola G42 ",cantidad:1,categoria:["celular","motorola"],precio:90000,disponibilidad:true,rutaimagen:'../images/motorola642.webp'},
-        {id:11,nombre:"Televisor TCL 50' 4K",cantidad:15,categoria:["tv","tcl"],precio:800000,disponibilidad:true,rutaimagen:'../images/tv504ktcl.webp'},
-        {id:12,nombre:"Minicomponete Sony",cantidad:9,categoria:["audio","sony"],precio:200000,disponibilidad:true,rutaimagen:'../images/minicomponentesony.webp'},
-        {id:13,nombre:"Notebook Asus Intel I3",cantidad:5,categoria:["computadora","asus"],precio:220000,disponibilidad:true,rutaimagen:'../images/laptopasusintelcorei3.webp'},
-        {id:14,nombre:"Notebook Dell Intel Core I7",cantidad:6,categoria:["computadora","dell"],precio:380000,disponibilidad:true,rutaimagen:'../images/laptopdelllattideintelcorei7.webp'},
-        {id:15,nombre:"Notebook Lenovo Intel Core I3",cantidad:8,categoria:["computadora","lenovo"],precio:220000,disponibilidad:true,rutaimagen:'../images/latoplenovoideapadinteli3.webp'},
-        {id:16,nombre:"Minicomponente Philips",cantidad:11,categoria:["audio","philips"],precio:180000,disponibilidad:true,rutaimagen:'../images/minicomponentesphilips.webp'},
-        {id:17,nombre:"Motorola Edge 30",cantidad:17,categoria:["celular","motorola"],precio:190000,disponibilidad:true,rutaimagen:'../images/motorlaedge30neo.webp'},
-        {id:18,nombre:"Motorola E32",cantidad:21,categoria:["celular","motorola"],precio:80000,disponibilidad:true,rutaimagen:'../images/motorolae32.webp'},
-        {id:19,nombre:"Motorola E13",cantidad:17,categoria:["celular","motorola"],precio:75000,disponibilidad:true,rutaimagen:'../images/motorolae1364gb.webp'},
-        {id:20,nombre:"Nintendo Switch 64gb",cantidad:18,categoria:["consola","nintendo"],precio:250000,disponibilidad:true,rutaimagen:'../images/nintendoswitcholed64gb.webp'},
-        {id:21,nombre:"Notebook HP ryzen 7",cantidad:25,categoria:["computadora","hp"],precio:300000,disponibilidad:true,rutaimagen:'../images/notebookhpvictusryzen7.webp'},
-        {id:22,nombre:"Laptop Macbook pro",cantidad:20,categoria:["computadora","apple"],precio:500000,disponibilidad:true,rutaimagen:'../images/notebookmacbookpro.webp'},
-        {id:23,nombre:"Parlante JBL flip 6",cantidad:24,categoria:["audio","jbl"],precio:110000,disponibilidad:true,rutaimagen:'../images/parlantejblflip6.webp'},
-        {id:24,nombre:"Televisor Philips 43' smart tv UHD",cantidad:14,categoria:["tv","philips"],precio:80000,disponibilidad:true,rutaimagen:'../images/philips43smarttv.webp'},
-        {id:25,nombre:"Sony Playstation 4 1TB",cantidad:10,categoria:["consola","sony"],precio:160000,disponibilidad:true,rutaimagen:'../images/plastatios41tb.webp'},
-        {id:26,nombre:"Sony Playstation 5 825GB",cantidad:17,categoria:["consola","sony"],precio:350000,disponibilidad:true,rutaimagen:'../images/playstation5825gb.webp'},
-        {id:27,nombre:"Samsung S23 Ultra 1TB",cantidad:3,categoria:["celular","samsung"],precio:550000,disponibilidad:true,rutaimagen:'../images/samsung-s23ultra.png'},
-        {id:28,nombre:"Samsung Z Fold4 256GB",cantidad:5,categoria:["celular","samsung"],precio:260000,disponibilidad:true,rutaimagen:'../images/samsungzfold4.webp'},
-        {id:29,nombre:"Televisor TCL 40' UHD",cantidad:8,categoria:["televisor","tcl"],precio:95000,disponibilidad:true,rutaimagen:'../images/tcl40fullhd.webp'},
-        {id:30,nombre:"Televisor Samsung QLED 65' 4K",cantidad:17,categoria:["televisor","samsung"],precio:600000,disponibilidad:true,rutaimagen:'../images/tv-samsung-qled65.webp'},
-        {id:31,nombre:"Televisor Noblex 75' 4K", cantidad:22,categoria:["televisor","noblex"],precio:650000,disponibilidad:true,rutaimagen:'../images/tvnoblex4k75.webp'},
-        {id:32,nombre:"Xbox Series S 512GB", cantidad:29,categoria:["consola","xbox"],precio:250000,disponibilidad:true,rutaimagen:'../images/xboxseriesS512gb.webp'},
-        {id:33,nombre:"Celular Xiaomi Redmi Note 11",cantidad:28,categoria:["celular","xiaomi"],precio:130000,disponibilidad:true,rutaimagen:'../images/xiamiredminote11.webp'},
-        {id:34,nombre:"Celular Xiaomi Redmi Note 12",cantidad:30,categoria:["celular","xiaomi"],precio:190000,disponibilidad:true,rutaimagen:'../images/xiaomiredminote12.webp'}
-    ]
-    
-    CrearCards(productos)
-    CambiarIconoChangito()
-    
-    BusquedaProductos(productos)
-    FiltradoCategoriasProductos(productos)
-    FiltradoPreciosPoductos(productos)
+function VaciarCarrito(){
+    localStorage.clear()
     ActualizarPaginaCarrito()
+    let aCambiar = document.getElementById("cantidad-icono-changito")
+    aCambiar.innerText = "0 productos"
+}
+
+function mostrarmensajeeliminar(){
+    Swal.fire({
+        title:"Esta seguro que desea eliminar todos los productos de su carrito?",
+        icon: "warning",
+        showCancelButton:true,
+        confirmButtonText:"Si, seguro",
+        cancelButtonText: "Cancelar",
+
+    })
+    .then((result)=>{
+        if(result.isConfirmed){
+            Swal.fire({
+                title:"Eliminado",
+                icon: "success",
+                text:"Los productos han sido eliminados",
+                timer:1500,
+                showConfirmButton:false
+            
+            })
+            VaciarCarrito()
+            
+        } 
+    })
+}
+function mostrarmensajefinalizar(){
+    Swal.fire({
+        title:"Desea finalizar la compra?",
+        icon: "question",
+        showCancelButton:true,
+        confirmButtonText:"Si",
+        cancelButtonText: "Cancelar",
+
+    })
+    .then((result)=>{
+        if(result.isConfirmed){
+            Swal.fire({
+                title:"Finalizado",
+                icon: "success",
+                text:"Gracias,por su compra",
+                timer:2000,
+                showConfirmButton:false
+            
+            })
+            VaciarCarrito()
+            
+        } 
+    })
+}
+
+function Borratodo(){
+    let boton = document.getElementById("borrartodo")
+    if (boton){
+        boton.addEventListener("click",mostrarmensajeeliminar)
+    }
+}
+
+function FinalizarCompra(){
+    let boton = document.getElementById("finalizar")
+    if (boton){
+        boton.addEventListener("click",mostrarmensajefinalizar)
+    }
+
+}
+
+function main() {
     
 
+    let productos =[]
+    fetch("../productos.json")
+    .then(respuesta => {
+        
+        if(!respuesta.ok){
+            console.error("Error, no se pudo obtener los datos")
+        }
+        
+        return respuesta.json()
+    })
+    .then(prod => {
+        productos = prod
+        CrearCardsIndex(productos)
+        CrearCards(productos)
+        CambiarIconoChangito()
+        
+        BusquedaProductos(productos)
+        FiltradoCategoriasProductos(productos)
+        FiltradoPreciosPoductos(productos)
+        ActualizarPaginaCarrito()
+        
+        
+        let swiper1 = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 25,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        });
+        let swiper2 = new Swiper(".carouselMarcas", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        
+        });
+        
+        
+    })
+    .catch(error => {console.log(error)})
+    
+    
+   
 }
 
 main()
