@@ -354,9 +354,9 @@ function main() {
     let productos =[]
    
     
-    let nombreArchivo = "productos.json";
+    let nombreArchivo = "productos.json"
 
-    
+
     fetch(nombreArchivo)
     .then(respuesta => {
         

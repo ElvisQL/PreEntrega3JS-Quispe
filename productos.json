@@ -9,7 +9,7 @@
       ],
       "precio":400000,
       "disponibilidad":true,
-      "rutaimagen":"../images/samsung-s23plus.png"
+      "rutaimagen":"images/samsung-s23plus.png"
    },
    {
       "id":2,
@@ -21,7 +21,7 @@
       ],
       "precio":200000,
       "disponibilidad":true,
-      "rutaimagen":"../images/samsunga54.webp"
+      "rutaimagen":"images/samsunga54.webp"
    },
    {
       "id":3,
@@ -33,7 +33,7 @@
       ],
       "precio":700000,
       "disponibilidad":true,
-      "rutaimagen":"../images/iphone14-promax.webp"
+      "rutaimagen":"images/iphone14-promax.webp"
    },
    {
       "id":4,
@@ -45,7 +45,7 @@
       ],
       "precio":550000,
       "disponibilidad":true,
-      "rutaimagen":"../images/iphone13-promax.webp"
+      "rutaimagen":"images/iphone13-promax.webp"
    },
    {
       "id":5,
@@ -57,7 +57,7 @@
       ],
       "precio":130000,
       "disponibilidad":true,
-      "rutaimagen":"../images/smarttvphilips74004k55.webp"
+      "rutaimagen":"images/smarttvphilips74004k55.webp"
    },
    {
       "id":6,
@@ -69,7 +69,7 @@
       ],
       "precio":180000,
       "disponibilidad":true,
-      "rutaimagen":"../images/tv-samsung-qled55.webp"
+      "rutaimagen":"images/tv-samsung-qled55.webp"
    },
    {
       "id":7,
@@ -81,7 +81,7 @@
       ],
       "precio":300000,
       "disponibilidad":true,
-      "rutaimagen":"../images/laptopasusinteli51135g7.webp"
+      "rutaimagen":"images/laptopasusinteli51135g7.webp"
    },
    {
       "id":8,
@@ -93,7 +93,7 @@
       ],
       "precio":280000,
       "disponibilidad":true,
-      "rutaimagen":"../images/lenovoryzen5.png"
+      "rutaimagen":"images/lenovoryzen5.png"
    },
    {
       "id":9,
@@ -105,7 +105,7 @@
       ],
       "precio":350000,
       "disponibilidad":true,
-      "rutaimagen":"../images/laptopdellinspironryzen5.webp"
+      "rutaimagen":"images/laptopdellinspironryzen5.webp"
    },
    {
       "id":10,
@@ -117,7 +117,7 @@
       ],
       "precio":90000,
       "disponibilidad":true,
-      "rutaimagen":"../images/motorola642.webp"
+      "rutaimagen":"images/motorola642.webp"
    },
    {
       "id":11,
@@ -129,7 +129,7 @@
       ],
       "precio":800000,
       "disponibilidad":true,
-      "rutaimagen":"../images/tv504ktcl.webp"
+      "rutaimagen":"images/tv504ktcl.webp"
    },
    {
       "id":12,
@@ -141,7 +141,7 @@
       ],
       "precio":200000,
       "disponibilidad":true,
-      "rutaimagen":"../images/minicomponentesony.webp"
+      "rutaimagen":"images/minicomponentesony.webp"
    },
    {
       "id":13,
@@ -153,7 +153,7 @@
       ],
       "precio":220000,
       "disponibilidad":true,
-      "rutaimagen":"../images/laptopasusintelcorei3.webp"
+      "rutaimagen":"images/laptopasusintelcorei3.webp"
    },
    {
       "id":14,
@@ -165,7 +165,7 @@
       ],
       "precio":380000,
       "disponibilidad":true,
-      "rutaimagen":"../images/laptopdelllattideintelcorei7.webp"
+      "rutaimagen":"images/laptopdelllattideintelcorei7.webp"
    },
    {
       "id":15,
@@ -177,7 +177,7 @@
       ],
       "precio":220000,
       "disponibilidad":true,
-      "rutaimagen":"../images/latoplenovoideapadinteli3.webp"
+      "rutaimagen":"images/latoplenovoideapadinteli3.webp"
    },
    {
       "id":16,
@@ -189,7 +189,7 @@
       ],
       "precio":180000,
       "disponibilidad":true,
-      "rutaimagen":"../images/minicomponentesphilips.webp"
+      "rutaimagen":"images/minicomponentesphilips.webp"
    },
    {
       "id":17,
@@ -201,7 +201,7 @@
       ],
       "precio":190000,
       "disponibilidad":true,
-      "rutaimagen":"../images/motorlaedge30neo.webp"
+      "rutaimagen":"images/motorlaedge30neo.webp"
    },
    {
       "id":18,
@@ -213,7 +213,7 @@
       ],
       "precio":80000,
       "disponibilidad":true,
-      "rutaimagen":"../images/motorolae32.webp"
+      "rutaimagen":"images/motorolae32.webp"
    },
    {
       "id":19,
@@ -225,7 +225,7 @@
       ],
       "precio":75000,
       "disponibilidad":true,
-      "rutaimagen":"../images/motorolae1364gb.webp"
+      "rutaimagen":"images/motorolae1364gb.webp"
    },
    {
       "id":20,
@@ -237,7 +237,7 @@
       ],
       "precio":250000,
       "disponibilidad":true,
-      "rutaimagen":"../images/nintendoswitcholed64gb.webp"
+      "rutaimagen":"images/nintendoswitcholed64gb.webp"
    },
    {
       "id":21,
@@ -249,7 +249,7 @@
       ],
       "precio":300000,
       "disponibilidad":true,
-      "rutaimagen":"../images/notebookhpvictusryzen7.webp"
+      "rutaimagen":"images/notebookhpvictusryzen7.webp"
    },
    {
       "id":22,
@@ -261,7 +261,7 @@
       ],
       "precio":500000,
       "disponibilidad":true,
-      "rutaimagen":"../images/notebookmacbookpro.webp"
+      "rutaimagen":"images/notebookmacbookpro.webp"
    },
    {
       "id":23,
@@ -273,7 +273,7 @@
       ],
       "precio":110000,
       "disponibilidad":true,
-      "rutaimagen":"../images/parlantejblflip6.webp"
+      "rutaimagen":"images/parlantejblflip6.webp"
    },
    {
       "id":24,
@@ -285,7 +285,7 @@
       ],
       "precio":80000,
       "disponibilidad":true,
-      "rutaimagen":"../images/philips43smarttv.webp"
+      "rutaimagen":"images/philips43smarttv.webp"
    },
    {
       "id":25,
@@ -297,7 +297,7 @@
       ],
       "precio":160000,
       "disponibilidad":true,
-      "rutaimagen":"../images/plastatios41tb.webp"
+      "rutaimagen":"images/plastatios41tb.webp"
    },
    {
       "id":26,
@@ -309,7 +309,7 @@
       ],
       "precio":350000,
       "disponibilidad":true,
-      "rutaimagen":"../images/playstation5825gb.webp"
+      "rutaimagen":"images/playstation5825gb.webp"
    },
    {
       "id":27,
@@ -321,7 +321,7 @@
       ],
       "precio":550000,
       "disponibilidad":true,
-      "rutaimagen":"../images/samsung-s23ultra.png"
+      "rutaimagen":"images/samsung-s23ultra.png"
    },
    {
       "id":28,
@@ -333,7 +333,7 @@
       ],
       "precio":260000,
       "disponibilidad":true,
-      "rutaimagen":"../images/samsungzfold4.webp"
+      "rutaimagen":"images/samsungzfold4.webp"
    },
    {
       "id":29,
@@ -345,7 +345,7 @@
       ],
       "precio":95000,
       "disponibilidad":true,
-      "rutaimagen":"../images/tcl40fullhd.webp"
+      "rutaimagen":"images/tcl40fullhd.webp"
    },
    {
       "id":30,
@@ -357,7 +357,7 @@
       ],
       "precio":600000,
       "disponibilidad":true,
-      "rutaimagen":"../images/tv-samsung-qled65.webp"
+      "rutaimagen":"images/tv-samsung-qled65.webp"
    },
    {
       "id":31,
@@ -369,7 +369,7 @@
       ],
       "precio":650000,
       "disponibilidad":true,
-      "rutaimagen":"../images/tvnoblex4k75.webp"
+      "rutaimagen":"images/tvnoblex4k75.webp"
    },
    {
       "id":32,
@@ -381,7 +381,7 @@
       ],
       "precio":250000,
       "disponibilidad":true,
-      "rutaimagen":"../images/xboxseriesS512gb.webp"
+      "rutaimagen":"images/xboxseriesS512gb.webp"
    },
    {
       "id":33,
@@ -393,7 +393,7 @@
       ],
       "precio":130000,
       "disponibilidad":true,
-      "rutaimagen":"../images/xiamiredminote11.webp"
+      "rutaimagen":"images/xiamiredminote11.webp"
    },
    {
       "id":34,
@@ -405,6 +405,6 @@
       ],
       "precio":190000,
       "disponibilidad":true,
-      "rutaimagen":"../images/xiaomiredminote12.webp"
+      "rutaimagen":"images/xiaomiredminote12.webp"
    }
 ]
