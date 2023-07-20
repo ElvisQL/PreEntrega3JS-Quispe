@@ -352,7 +352,7 @@ function main() {
     
 
     let productos =[]
-    fetch("../productos.json")
+    fetch("C:/Users/Elvis/Desktop/proyectofinal-JS-Coder/productos.json")
     .then(respuesta => {
         
         if(!respuesta.ok){
