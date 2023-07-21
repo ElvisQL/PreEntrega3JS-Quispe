@@ -1,5 +1,11 @@
 
 
+
+//************************************************
+//********FUNCIONES DE MODIFICACION DE DOM********
+//************************************************ 
+
+//Funcion para crear cards en el INDEX
 function CrearCardsIndex(prod){
     let contenedor = document.getElementById("swiperwrapperlomasnuevo")
     if (contenedor){
@@ -16,20 +22,15 @@ function CrearCardsIndex(prod){
                     <button class="boton-agregar" value ="${prod[i].nombre}">Agregar producto </button>
                 </div>
             </div>
-            
-            
             `
             contenedor.appendChild(swiper_slide)
         }
-        let botonAgregar = document.querySelectorAll(".boton-agregar")
-        
+        let botonAgregar = document.querySelectorAll(".boton-agregar")   
         for (let boton of botonAgregar){
             boton.addEventListener('click', () => agregarproducto(prod,boton.value))
         }
     }
-
 }
-
 
 //FUNCION PARA CREAR CARDS
 function CrearCards(arrayDeObjetos){
@@ -57,8 +58,88 @@ function CrearCards(arrayDeObjetos){
             boton.addEventListener('click', () => agregarproducto(arrayDeObjetos,boton.value))
         }
     }
+}
+
+//Esta funcion actualiza el numero de productos en el icono del changito
+function CambiarIconoChangito() {
+    let carrito = JSON.parse(localStorage.getItem("carrito"))
+    if (carrito){
+        let aCambiar = document.getElementById("cantidad-icono-changito")
+        let cantidadtotal = carrito.reduce((i,p)=>{return i + p.cantidad},0)
+        aCambiar.innerText = cantidadtotal.toString() + " productos"
+    }
     
 }
+
+//Esta funcion recibe una lista de productos para crear cartas de productos para el carrito y tambien 
+//asigna un event listener para borrar
+function AgregarCardEnEspera(prod){
+    let contenedor = document.getElementById("lista-carrito")
+    contenedor.innerHTML=''
+    let contador = 0
+    for (let p of prod) {
+        let li = document.createElement("li")
+        li.innerHTML = `
+            <div class = "card-producto-en-espera">
+                <div class="titulo-producto">
+                    <i id ="${p.id}" class="bi bi-trash"></i>
+                    <img src = ${p.imagen}>
+                    <span>${p.nombre}</span>
+                </div>
+                <div class ="titulo-precio">
+                    <span>${p.precioU}</span>
+                </div>
+                <div class ="titulo-cantidad">
+                    <span class = "titulo-cantidad">${p.cantidad}</span>
+                </div>
+                <div class ="titulo-preciototal">
+                    <span class = "titulo.preciototal">${p.precioT}</span>
+                </div>  
+            </div>
+        `
+        contenedor.appendChild(li)
+        contador += p.precioT
+    }
+    let total = document.getElementById("Total-compra")
+    total.innerText = `Precio Total del carrito: ${contador}`
+    QuitarProducto()
+    Borratodo()
+    FinalizarCompra()
+
+}
+//esta funcion actualiza el DOM de la pagina carrito
+function ActualizarPaginaCarrito(){
+    let contenedor = document.querySelector(".menu-box-carrito")
+    
+    if (contenedor){
+        let productoscarrito = JSON.parse(localStorage.getItem("carrito"))
+
+        let box_resumen = document.querySelector("#hay-productos") 
+        let box_mensaje = document.querySelector("#mensaje-no-hay")
+
+        if (productoscarrito && productoscarrito.length !== 0) {
+            box_mensaje.style.display = "none"
+            box_resumen.style.display = "flex"
+            AgregarCardEnEspera(productoscarrito)
+        }
+        else{
+            
+            box_resumen.style.display = "none"
+            box_mensaje.style.display = "flex"
+        }
+    }
+    
+}
+
+
+
+
+
+
+//****************************************************
+//*********FUNCIONES DE FILTRADO DE PRODUCTOS*********
+//**************************************************** 
+
 
 //esta funcion filtra los productos segun lo que el usuario busque
 function filtradoyagregadodecards(arraydeproductos,aBuscar) {
@@ -74,10 +155,7 @@ function BusquedaProductos(productos){
     if (boton && input){
         boton.addEventListener('click',()=>filtradoyagregadodecards(productos,input.value))
     }
-    
-    
 }
-
 
 //Esta funcion filtra por categoria los productos y actualiza
 function filtraporcategoria(checkboxes,prod){
@@ -124,16 +202,21 @@ function FiltradoPreciosPoductos(prod){
     }
     
 }
-function MostrarTostada(){
-    Toastify({
-        text: "Producto Agregado",
-        duration: 2000,
-        gravity: "bottom",
-        position: "left",
-        className: "Toast",
 
-    }).showToast()
-}
+
+
+
+
+
+
+
+
+
+
+//****************************************************
+//*********FUNCIONES DE LOCAL STORAGE*****************
+//**************************************************** 
+
 
 //esta funcion agrega al local storage el producto
 function agregarproducto(prod,nombreDelProducto){
@@ -163,93 +246,6 @@ function agregarproducto(prod,nombreDelProducto){
     CambiarIconoChangito()
     ActualizarPaginaCarrito()
 }
-    
-
-//Esta funcion actualiza el numero de productos en el icono del changito
-function CambiarIconoChangito() {
-    let carrito = JSON.parse(localStorage.getItem("carrito"))
-    if (carrito){
-        let aCambiar = document.getElementById("cantidad-icono-changito")
-        let cantidadtotal = carrito.reduce((i,p)=>{return i + p.cantidad},0)
-        aCambiar.innerText = cantidadtotal.toString() + " productos"
-    }
-    
-}
-
-
-
-//Esta funcion recibe una lista de productos para crear cartas de productos para el carrito y tambien 
-//asigna un event listener para borrar
-function AgregarCardEnEspera(prod){
-    let contenedor = document.getElementById("lista-carrito")
-    contenedor.innerHTML=''
-    let contador = 0
-    for (let p of prod) {
-        let li = document.createElement("li")
-        li.innerHTML = `
-            <div class = "card-producto-en-espera">
-                <div class="titulo-producto">
-                    <i id ="${p.id}" class="bi bi-trash"></i>
-                    <img src = ${p.imagen}>
-                    <span>${p.nombre}</span>
-                </div>
-                <div class ="titulo-precio">
-                    <span>${p.precioU}</span>
-                </div>
-                <div class ="titulo-cantidad">
-                    <span class = "titulo-cantidad">${p.cantidad}</span>
-                </div>
-                <div class ="titulo-preciototal">
-                    <span class = "titulo.preciototal">${p.precioT}</span>
-                </div>  
-            </div>
-        `
-        contenedor.appendChild(li)
-        contador += p.precioT
-    }
-    let total = document.getElementById("Total-compra")
-    total.innerText = `Precio Total del carrito: ${contador}`
-    QuitarProducto()
-    Borratodo()
-    FinalizarCompra()
-
-}
-
-//esta funcion actualiza el DOM de la pagina carrito
-function ActualizarPaginaCarrito(){
-    let contenedor = document.querySelector(".menu-box-carrito")
-    
-    if (contenedor){
-        let productoscarrito = JSON.parse(localStorage.getItem("carrito"))
-
-        let box_resumen = document.querySelector("#hay-productos") 
-        let box_mensaje = document.querySelector("#mensaje-no-hay")
-
-        if (productoscarrito && productoscarrito.length !== 0) {
-            box_mensaje.style.display = "none"
-            box_resumen.style.display = "flex"
-            AgregarCardEnEspera(productoscarrito)
-        }
-        else{
-            
-            box_resumen.style.display = "none"
-            box_mensaje.style.display = "flex"
-        }
-    }
-    
-}
-
-function MostrarTostadaEliminar(){
-    Toastify({
-        text:"Producto eliminado",
-        duration: 2000,
-        gravity: "bottom",
-        position: "right",
-        className: "Toast",
-    }).showToast()
-    
-}
-
 
 //esta funcion recibe un id a eliminar de la lista en el carrito y lo elimina
 function eliminarProducto(id_a_eliminar){
@@ -276,7 +272,7 @@ function QuitarProducto(){
      
 }
 
-
+//Esta funcion elimina el local storage y vuelve a 0 el iconon del changito
 function VaciarCarrito(){
     localStorage.clear()
     ActualizarPaginaCarrito()
@@ -284,6 +280,52 @@ function VaciarCarrito(){
     aCambiar.innerText = "0 productos"
 }
 
+//Esta funcion asigna un event listener al boton de borrar todo
+function Borratodo(){
+    let boton = document.getElementById("borrartodo")
+    if (boton){
+        boton.addEventListener("click",mostrarmensajeeliminar)
+    }
+}
+
+//Esta funcion asigna un event listener al boton de Finalizar compra
+function FinalizarCompra(){
+    let boton = document.getElementById("finalizar")
+    if (boton){
+        boton.addEventListener("click",mostrarmensajefinalizar)
+    }
+}
+
+
+//****************************************************
+//*******FUNCIONES DE TOASTIFY Y SWEETALERT***********
+//**************************************************** 
+
+//Esta funcion muestra la tostada
+function MostrarTostada(){
+    Toastify({
+        text: "Producto Agregado",
+        duration: 2000,
+        gravity: "bottom",
+        position: "left",
+        className: "Toast",
+
+    }).showToast()
+}
+
+//Estafuncion muestra la tostada al eliminar un producto
+function MostrarTostadaEliminar(){
+    Toastify({
+        text:"Producto eliminado",
+        duration: 2000,
+        gravity: "bottom",
+        position: "right",
+        className: "Toast",
+    }).showToast()
+    
+}
+
+//esta funcion muestra un  sweet alert al eliminar un producto
 function mostrarmensajeeliminar(){
     Swal.fire({
         title:"Esta seguro que desea eliminar todos los productos de su carrito?",
@@ -308,6 +350,8 @@ function mostrarmensajeeliminar(){
         } 
     })
 }
+
+//Esta funcion muestra una alerta al finalizar un producto
 function mostrarmensajefinalizar(){
     Swal.fire({
         title:"Desea finalizar la compra?",
@@ -333,37 +377,18 @@ function mostrarmensajefinalizar(){
     })
 }
 
-function Borratodo(){
-    let boton = document.getElementById("borrartodo")
-    if (boton){
-        boton.addEventListener("click",mostrarmensajeeliminar)
-    }
-}
 
-function FinalizarCompra(){
-    let boton = document.getElementById("finalizar")
-    if (boton){
-        boton.addEventListener("click",mostrarmensajefinalizar)
-    }
-
-}
-
+//************************************************
+//**************FUNCION PRINCIPAL*****************
+//************************************************ 
 function main() {
-    
-
     let productos =[]
-   
-    
     let nombreArchivo = "productos.json"
-
-
     fetch(nombreArchivo)
     .then(respuesta => {
-        
         if(!respuesta.ok){
             console.error("Error, no se pudo obtener los datos")
         }
-        
         return respuesta.json()
     })
     .then(prod => {
@@ -403,9 +428,5 @@ function main() {
         
     })
     .catch(error => {console.log(error)})
-    
-    
-   
 }
-
 main()
